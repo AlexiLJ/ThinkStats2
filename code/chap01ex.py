@@ -13,6 +13,33 @@ import sys
 import nsfg
 import thinkstats2
 
+def ex():
+    df = nsfg.ReadFemPreg()
+    num = df.pregnum.value_counts().sort_index()
+    
+    return num #df.outcome[indices].values
+    #pregnum
+
+def val_ex():
+    df = nsfg.ReadFemPreg()
+    pr_map = nsfg.MakePregMap(df)
+
+    for index, pregnum in df.pregnum.items():
+        caseid = df.caseid[index]
+        indicies = pr_map[caseid]
+
+        if len(indicies) != pregnum:
+            print(caseid, len(indices), pregnum)
+            return False
+    return True 
+
+   
+    #print(case_id)
+
+ 
+    #return df.pr_num #df.outcome[indices].values
+print(val_ex())
+
 
 def main(script):
     """Tests the functions in this module.
@@ -22,5 +49,5 @@ def main(script):
     print('%s: All tests passed.' % script)
 
 
-if __name__ == '__main__':
-    main(*sys.argv)
+# if __name__ == '__main__':
+#     main(*sys.argv)
