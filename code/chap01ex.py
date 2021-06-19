@@ -17,8 +17,9 @@ def ex():
     df = nsfg.ReadFemPreg()
     num = df.pregnum.value_counts().sort_index()
     
-    return num #df.outcome[indices].values
-    #pregnum
+    return num 
+
+print(ex())
 
 def val_ex():
     df = nsfg.ReadFemPreg()
@@ -27,7 +28,6 @@ def val_ex():
     for index, pregnum in df.pregnum.items():
         caseid = df.caseid[index]
         indicies = pr_map[caseid]
-
         if len(indicies) != pregnum:
             print(caseid, len(indices), pregnum)
             return False
